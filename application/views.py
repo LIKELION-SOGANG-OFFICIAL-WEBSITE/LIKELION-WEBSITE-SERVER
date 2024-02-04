@@ -18,7 +18,6 @@ class AppCreateListView(generics.ListCreateAPIView):
         field = request.data.get('field')
         apply_id = uuid.uuid4()
         
-
         try:
             subject = '지원서 고유번호 안내 메일'
             message = f'{name}님의 지원서 고유번호는 {apply_id} 입니다'
@@ -42,10 +41,46 @@ class AppCreateListView(generics.ListCreateAPIView):
 
         serializer = AppSerializer(application)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
+class AppDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Application.objects.all()
+    serializer_class = AppSerializer
+    lookup_field = 'apply_id'
+    
+    def get(self, request, *args, **kwargs):
+        apply_id = self.kwargs.get('apply_id')
+        
+        if not apply_id:
+            return Response({'message': 'Invalid ID or name'}, status=status.HTTP_404_NOT_FOUND)
+        try:
+            app = Application.objects.get(apply_id=apply_id)
+        except Application.DoesNotExist:
+            return Response({'message': 'Invalid ID or name'}, status=status.HTTP_404_NOT_FOUND)
+        serializer =   AppSerializer(app)
+        return Response(serializer.data)
+
+    def patch(self, request, *args, **kwargs):
+        apply_id = self.kwargs.get('apply_id')
+        
+        if not apply_id:
+            return Response({'message': 'Invalid ID or name'}, status=status.HTTP_404_NOT_FOUND)
+        try:
+            app = Application.objects.get(apply_id=apply_id)
+        except Application.DoesNotExist:
+            return Response({'message': 'Invalid ID or name'}, status=status.HTTP_404_NOT_FOUND)
+
+        serializer = AppSerializer(app, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+    
+
     
     
-# class AppDetailView(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = Application.objects.all()
-#     serializer_class = AppSerializer
     
     
