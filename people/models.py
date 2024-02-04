@@ -1,8 +1,8 @@
 from django.db import models
 
 class Part(models.TextChoices):
-    FRONT = 'FRONT'
-    BACK = 'BACK'
+    FRONT_END = 'FRONT-END'
+    BACK_END = 'BACK-END'
 
 class BabyLion(models.Model):
     name = models.CharField(max_length=20)
