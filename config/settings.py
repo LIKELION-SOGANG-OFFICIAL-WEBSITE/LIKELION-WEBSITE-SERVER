@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'project',
     'people',
     'visit',
+    'generation',
 ]
 
 MIDDLEWARE = [
