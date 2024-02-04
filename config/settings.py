@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     #앱
     'application',
     'project',
-    'lion',        
+    'people',        
 ]
 
 MIDDLEWARE = [
