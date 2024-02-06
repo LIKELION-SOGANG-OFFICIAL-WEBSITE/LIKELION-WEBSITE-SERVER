@@ -25,6 +25,7 @@ urlpatterns = [
     path('people/', include('people.urls')),
     path('generation/', include('generation.urls')),
     path('project/', include('project.urls')),
+    path('visit/', include('visit.urls')),
 ]
 
 # MEDIA_URL로 들어오는 요청에 대해 MEDIA_ROOT 경로를 탐색한다.
