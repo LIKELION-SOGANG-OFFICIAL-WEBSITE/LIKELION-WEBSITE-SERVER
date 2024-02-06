@@ -53,7 +53,7 @@ def people_list(request, generation_id):
 
 
     data = {
-        "generation": generation['name'],
+        "generation": generation['number'] + generation['suffix'],
         "adult_lion": adult_lion_serializer.data,
         "baby_lion": baby_lion_serializer.data 
     }
