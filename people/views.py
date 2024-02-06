@@ -15,7 +15,7 @@ def people_list(request, generation_id):
     if generation == None: # 예외 처리: 존재하지 않는 기수일 때(404)
         response = {
             "status": "error",
-            "message": "No people exists for the specified generation.",
+            "message": "Not found information for the specified generation.",
             "data": None
         }
 
