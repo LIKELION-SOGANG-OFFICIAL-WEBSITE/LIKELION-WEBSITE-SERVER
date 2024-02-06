@@ -38,7 +38,7 @@ def people_list(request, generation_id):
 
     elif not baby_lion_list: # 예외 처리: 기수에 대한 아기 사자 리스트가 존재하지 않을 때(200) = 모집 중
         data = {
-        "generation": generation['number'] + generation['suffix'],
+        "generation": str(generation['number']) + generation['suffix'],
         "adult_lion": adult_lion_serializer.data,
         "baby_lion": None
         }
@@ -53,7 +53,7 @@ def people_list(request, generation_id):
 
 
     data = {
-        "generation": generation['number'] + generation['suffix'],
+        "generation": str(generation['number']) + generation['suffix'],
         "adult_lion": adult_lion_serializer.data,
         "baby_lion": baby_lion_serializer.data 
     }
