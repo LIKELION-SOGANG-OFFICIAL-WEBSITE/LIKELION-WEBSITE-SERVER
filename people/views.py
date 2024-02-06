@@ -10,12 +10,12 @@ from rest_framework.generics import ListAPIView
 @api_view(['GET'])
 def people_list(request, generation_id):
 
-    generation = Generation.objects.filter(id=generation_id).values('id', 'name').first()
+    generation = Generation.objects.filter(id=generation_id).values('id', 'number', 'suffix').first()
     
     if generation == None: # 예외 처리: 존재하지 않는 기수일 때(404)
         response = {
             "status": "error",
-            "message": "No people information exists for the specified generation.",
+            "message": "No people exists for the specified generation.",
             "data": None
         }
 
@@ -38,7 +38,7 @@ def people_list(request, generation_id):
 
     elif not baby_lion_list: # 예외 처리: 기수에 대한 아기 사자 리스트가 존재하지 않을 때(200) = 모집 중
         data = {
-        "generation": generation['name'],
+        "generation": generation['number'] + generation['suffix'],
         "adult_lion": adult_lion_serializer.data,
         "baby_lion": None
         }
