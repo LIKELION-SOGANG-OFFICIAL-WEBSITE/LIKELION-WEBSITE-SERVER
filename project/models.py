@@ -1,8 +1,9 @@
 from django.db import models
+from generation.models import Generation
 
 class Project(models.Model):
     title = models.CharField(max_length=255)
-    generation = models.IntegerField()
+    generation_id = models.ForeignKey(Generation, on_delete=models.CASCADE)
     year = models.IntegerField()
     team_name = models.CharField(max_length=100)
     member_list = models.CharField(max_length=255)

@@ -1,13 +1,9 @@
 from django.db import models
 
-class VisitType(models.TextChoices):
-    TODAY = 'TODAY'
-    TOTAL = 'TOTAL'
-
 class Visit(models.Model):
-    visit_type = models.CharField(max_length=20, choices=VisitType.choices)
-    count = models.IntegerField(default=0)
+    date_time = models.DateTimeField(auto_now_add=True)
+    date = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.visit_type
+        return str(self.date_time)
 
