@@ -68,7 +68,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            # os.path.join(BASE_DIR, 'templates'), #이메일 양식
+            os.path.join(BASE_DIR, 'templates/application/email/'), #이메일 양식
         ],
         'APP_DIRS': True,
         'OPTIONS': {
