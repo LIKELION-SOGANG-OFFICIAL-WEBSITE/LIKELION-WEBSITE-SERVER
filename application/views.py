@@ -31,8 +31,8 @@ class AppCreateListView(generics.ListCreateAPIView):
         # 고유번호를 이메일로 발송
         try:
             subject = '멋쟁이사자처럼 지원서 고유번호 안내'
-            message = f'서강대 멋쟁이사자처럼에 지원하신 걸 환영합니다.\n {name} 님의 지원서 고유번호는 {apply_id} 입니다. \n'
-            from_email = 'sogang@likelion.org'  # 발신 이메일 주소 입력 -> 발송 시에는 발송 이메일 주소로 발송됨...
+            message = f'서강대 멋쟁이사자처럼에 지원하신 걸 환영합니다.\n{name} 님의 지원서 고유번호는 {apply_id} 입니다. \n'
+            from_email = 'likelionSG@gmail.com'  # 발신 이메일 주소 입력 -> 발송 시에는 발송 이메일 주소로 발송됨...
             recipient_list = [email]
             send_mail(subject, message, from_email, recipient_list, fail_silently=False)
         except BadHeaderError:
