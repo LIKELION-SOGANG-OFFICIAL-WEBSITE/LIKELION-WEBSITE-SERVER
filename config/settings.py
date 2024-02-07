@@ -67,7 +67,9 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates/application/email/'), #이메일 양식
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -138,7 +140,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'kimyy200063@gmail.com'  #인증 이메일 발신자
+EMAIL_HOST_USER =  os.environ['EMAIL_ID'] #인증 이메일 발신자
 EMAIL_HOST_PASSWORD = os.environ['EMAIL_PASSWORD']  #발신자 이메일 앱 비밀번호
 
 # media
