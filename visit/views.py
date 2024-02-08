@@ -29,7 +29,7 @@ def add_and_get_visit(request):
 
         data = {
             "total_visit" : total_visit,
-            "today_visit" : total_visit
+            "today_visit" : today_visit
         }
 
         response = {
