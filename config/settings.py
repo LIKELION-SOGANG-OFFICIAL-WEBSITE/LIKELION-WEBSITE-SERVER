@@ -13,7 +13,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os
+import pymysql
 
+pymysql.install_as_MySQLdb()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -90,8 +92,19 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        
+        # RDS 연동
+        'ENGINE' : 'django.db.backends.mysql',
+        'NAME' : os.environ['DB_NAME'],
+        'USER' : os.environ['DB_USER'],
+        'PASSWORD' : os.environ['DB_PASSWORD'],
+        'HOST' : os.environ['DB_HOST'],
+        'PORT' : '3306',
+        'OPTIONS':{
+            'init_command' : "SET sql_mode='STRICT_TRANS_TABLES'",
+        }
     }
 }
 
@@ -135,13 +148,15 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
+EMAIL_PORT = 25
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER =  os.environ['EMAIL_ID'] #인증 이메일 발신자
 EMAIL_HOST_PASSWORD = os.environ['EMAIL_PASSWORD']  #발신자 이메일 앱 비밀번호
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # media
 MEDIA_URL = "/media/"
