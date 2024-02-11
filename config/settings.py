@@ -31,38 +31,27 @@ SECRET_KEY=os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+    # # 퍼블릭 ip
+    # '43.201.6.43:8000',
+    # '43.201.6.43',
+    # # 프론트
+    # 'https://likelion-website.vercel.app/',
+    # # 백
+    # 'https://api.likelionsg.store',
+    # # 프라이빗 ip
+    # '172.31.2.232:8000',
+    # '172.31.2.232',
 
-ALLOWED_HOSTS = [
-    # 퍼블릭 ip
-    '43.201.6.43:8000',
-    '43.201.6.43',
-    # 프론트
-    'https://likelion-website.vercel.app/',
-    # 백
-    'https://api.likelionsg.store',
-    # 프라이빗 ip
-    '172.31.2.232:8000',
-    '172.31.2.232',
-]
+ALLOWED_HOSTS = ['*',]
 
 # CORS 설정
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = [
-    # 퍼블릭 ip
-    '43.201.6.43:8000',
-    '43.201.6.43',
-    # 프론트
-    'https://likelion-website.vercel.app/',
-    # 백
-    'https://api.likelionsg.store',
-    # 프라이빗 ip
-    '172.31.2.232:8000',
-    '172.31.2.232',
-]
+CORS_ALLOWED_ORIGINS = ['*',]
 
 # CSRF 설정
 CSRF_TRUSTED_ORIGINS = [
-    # 퍼블릭 ip
+
+    # # 퍼블릭 ip
     'http://43.201.6.43:8000',
     'http://43.201.6.43',
     # 프론트
@@ -73,7 +62,6 @@ CSRF_TRUSTED_ORIGINS = [
     'http://172.31.2.232:8000',
     'http://172.31.2.232',
 ]
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -196,7 +184,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 25
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER =  os.environ['EMAIL_ID'] #인증 이메일 발신자
 EMAIL_HOST_PASSWORD = os.environ['EMAIL_PASSWORD']  #발신자 이메일 앱 비밀번호
