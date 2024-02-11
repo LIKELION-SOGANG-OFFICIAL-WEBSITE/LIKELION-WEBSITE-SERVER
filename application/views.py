@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.core.mail import send_mail, BadHeaderError
+from django.core.mail import EmailMessage
+
 from django.template.loader import render_to_string
 from django.db.models import Q
 
@@ -33,7 +35,7 @@ class AppCreateListView(generics.ListCreateAPIView):
         # context = {'name': name, 'apply_id': apply_id}
         # html_message = render_to_string('email.html', context )
         html_message = render_to_string('email.html', {'name': name, 'apply_id': apply_id})
-  
+
         # 고유번호를 이메일로 발송
         try:
             subject = '멋쟁이사자처럼 지원서 고유번호 안내 이메일'
