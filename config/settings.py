@@ -31,8 +31,30 @@ SECRET_KEY=os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
 
+ALLOWED_HOSTS = [
+    '43.201.6.43:8000',
+    '43.201.6.43',
+    'https://likelion-website.vercel.app/',
+    'https://api.likelionsg.store',
+]
+
+# CORS 설정
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    '43.201.6.43:8000',
+    '43.201.6.43',
+    'https://likelion-website.vercel.app/',
+    'https://api.likelionsg.store',
+]
+
+# CSRF 설정
+CSRF_TRUSTED_ORIGINS = [
+    'http://43.201.6.43:8000',
+    'http://43.201.6.43',
+    'https://likelion-website.vercel.app/',
+    'https://api.likelionsg.store',
+]
 
 # Application definition
 
