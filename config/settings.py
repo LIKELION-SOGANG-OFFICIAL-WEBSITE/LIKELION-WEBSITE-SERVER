@@ -56,8 +56,10 @@ CSRF_TRUSTED_ORIGINS = [
     'http://43.201.6.43',
     # 프론트
     'https://likelion-website.vercel.app/',
+    "http://localhost:3000",
     # 백
     'https://api.likelionsg.store',
+    "http://127.0.0.1:8000",
     # 프라이빗 ip
     'http://172.31.2.232:8000',
     'http://172.31.2.232',
