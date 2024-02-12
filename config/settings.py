@@ -84,6 +84,20 @@ MIDDLEWARE = [
 # CORS 설정
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_WHITELIST = [
+    # 퍼블릭 ip
+    '43.201.6.43:8000',
+    '43.201.6.43',
+    # 프론트
+    'likelion-website.vercel.app/',
+    "localhost:3000",
+    # 백
+    'api.likelionsg.store',
+    "127.0.0.1:8000",
+    # 프라이빗 ip
+    '172.31.2.232:8000',
+    '172.31.2.232',
+]
 
 # CSRF 설정
 CSRF_TRUSTED_ORIGINS = [
@@ -181,8 +195,15 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+
+# STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
 STATIC_ROOT =  os.path.join(BASE_DIR, 'static')
-STATIC_URL = 'static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
