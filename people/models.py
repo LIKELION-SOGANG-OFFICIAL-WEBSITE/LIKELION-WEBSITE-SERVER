@@ -19,6 +19,8 @@ class AdultLion(models.Model):
     generation_id = models.ForeignKey(Generation, on_delete=models.CASCADE)
     part = models.CharField(max_length=20, choices=Part.choices)
     emoji = models.FileField()
+    is_president = models.BooleanField(default=False)
+    is_vice_president = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
