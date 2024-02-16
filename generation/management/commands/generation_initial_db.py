@@ -2,7 +2,6 @@ from django.core.management.base import BaseCommand
 from generation.models import Generation
 
 class Command(BaseCommand):
-    help = 'manage video objects'
     def handle(self, *args, **options):
         generations_data = [
             {'number': 6, 'suffix': 'th'},

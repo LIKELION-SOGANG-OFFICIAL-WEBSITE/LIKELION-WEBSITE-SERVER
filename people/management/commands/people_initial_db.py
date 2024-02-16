@@ -3,8 +3,6 @@ from people.models import AdultLion, BabyLion
 from generation.models import Generation
 
 class Command(BaseCommand):
-    help = 'Manage AdultLion objects'
-
     def handle(self, *args, **options):
         generation6 = Generation.objects.get(number=6)
         generation7 = Generation.objects.get(number=7)
@@ -15,6 +13,12 @@ class Command(BaseCommand):
         generation12 = Generation.objects.get(number=12)
 
         adult_lion_data = [
+            {'name': '김멋사', 'generation_id': generation6, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg'},
+            {'name': '김멋사', 'generation_id': generation7, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg'},
+            {'name': '김멋사', 'generation_id': generation8, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg'},
+            {'name': '김멋사', 'generation_id': generation9, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg'},
+            {'name': '김멋사', 'generation_id': generation10, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg'},
+
             {'name': '한우석', 'generation_id': generation11, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg'},
             {'name': '진민석', 'generation_id': generation11, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg'},
             {'name': '김아영', 'generation_id': generation11, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg'},
@@ -178,4 +182,4 @@ class Command(BaseCommand):
             BabyLion.objects.create(**lion_data)
 
 
-        self.stdout.write(self.style.SUCCESS('people data created!'))
+        self.stdout.write(self.style.SUCCESS('People data created!'))
