@@ -10,7 +10,7 @@ class AppDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Application
         exclude = ['email', 'phone', 'apply_id', 'isAttend', 'app5', 'app6', 'isPass']
-        read_only_fields = ['email', 'phone', 'apply_id', 'app5', 'app6', 'isPass']
+        read_only_fields = ['email', 'phone', 'apply_id', 'isAttend', 'app5', 'app6', 'isPass']
 
 class IsPassSerializer(serializers.ModelSerializer):
     class Meta:
