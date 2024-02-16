@@ -30,7 +30,7 @@ class Command(BaseCommand):
                 'year': 2023,  
                 'team_name': '효를 아십니까',
                 'member_list': '김규빈 김민지 송경호 임정연 정태현',
-                'project_image': 'SILVERCAMPUS' ,
+                'project_image': 'SILVERCAMPUS',
                 'content': '연령에 따른 디지털 공간 격차를 해소하기 위한, 시니어 온라인 강의&커뮤니티 \
                     플랫폼입니다. 타 강의 웹 서비스와의 차별점은 다음과 같습니다. 간단하고 편리한 UI, 음성 안내 서비스, \
                     시니어 맞춤 컨텐츠, 소셜 페이지 ‘청년 광장 등의 서비스를 제공합니다.',
@@ -109,7 +109,7 @@ class Command(BaseCommand):
                 'team_name': 'Koogle',
                 'member_list': '김민지 김성현 문소정 이우찬 장세환',
                 'project_image': 'KOOGLE.png',  
-                'content': '김성현 노현서 신명준 문소정 장세환',
+                'content': '외국인을 위한 맞춤형 맛집 탐색 플랫폼으로, 사용자 친화적인 번역 기능과 자체 리뷰 시스템을 통해 여행자가 현지의 맛집을 쉽게 찾고 경험할 수 있도록 돕는 플랫폼입니다.',
                 'url': "https://github.com/SojeongM/Koogle_front"
             },
 
