@@ -9,7 +9,7 @@ from rest_framework import generics, mixins, status
 from rest_framework.response import Response
 
 from .models import Application
-from .serializers import AppSerializer
+from .serializers import AppSerializer, AppDetailSerializer, IsPassSerializer
 import uuid
 
 class AppCreateListView(generics.ListCreateAPIView):
@@ -20,7 +20,7 @@ class AppCreateListView(generics.ListCreateAPIView):
         name = request.data.get('name')
         student_number = request.data.get('student_number')
         email = request.data.get('email')
-        field = request.data.get('field')
+        phone = request.data.get('phone')
         apply_id = uuid.uuid4()
 
         # 중복 지원자 확인 : (student_number || email )
@@ -39,7 +39,7 @@ class AppCreateListView(generics.ListCreateAPIView):
         # 고유번호를 이메일로 발송
         try:
             subject = '멋쟁이사자처럼 지원서 고유번호 안내 이메일'
-            message = f'서강대 멋쟁이사자처럼에 지원하신 걸 환영합니다.\n{name} 님의 지원서 고유번호는 {apply_id} 입니다. \n'
+            message = f'\n서강대 멋쟁이사자처럼에 지원하신 걸 환영합니다.\n{name} 님의 지원서 고유번호는 {apply_id} 입니다. \n'
             from_email = 'likelionSG@gmail.com'  # 발신 이메일 주소 입력 -> 발송 시에는 발송 이메일 주소로 발송됨...
             recipient_list = [email]
             #send_mail(subject, '', from_email, recipient_list, html_message=html_message, fail_silently=False)
@@ -54,7 +54,7 @@ class AppCreateListView(generics.ListCreateAPIView):
             name=name,
             student_number=student_number,
             email=email,
-            field=field,
+            phone=phone,
             apply_id=apply_id
         )
 
@@ -64,9 +64,13 @@ class AppCreateListView(generics.ListCreateAPIView):
 
 class AppDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Application.objects.all()
-    serializer_class = AppSerializer
+    serializer_class = AppDetailSerializer
     lookup_field = 'apply_id' # 고유번호를 이용해서 지원서 조회
     
+class IsPassView(generics.RetrieveAPIView):
+    queryset = Application.objects.all()
+    serializer_class = IsPassSerializer
+    lookup_field = 'apply_id' # 고유번호를 이용해서 지원서 조회
     
 
     
