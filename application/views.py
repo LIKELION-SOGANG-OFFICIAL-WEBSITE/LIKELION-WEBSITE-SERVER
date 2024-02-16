@@ -12,7 +12,7 @@ from .models import Application
 from .serializers import AppSerializer, AppDetailSerializer, IsPassSerializer
 import uuid
 
-class AppCreateListView(generics.ListCreateAPIView):
+class AppCreateListView(generics.CreateAPIView):
     queryset = Application.objects.all()
     serializer_class = AppSerializer
     
