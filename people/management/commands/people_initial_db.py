@@ -13,28 +13,28 @@ class Command(BaseCommand):
         generation12 = Generation.objects.get(number=12)
 
         adult_lion_data = [
-            {'name': '김멋사', 'generation_id': generation6, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg'},
-            {'name': '김멋사', 'generation_id': generation7, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg'},
-            {'name': '김멋사', 'generation_id': generation8, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg'},
-            {'name': '김멋사', 'generation_id': generation9, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg'},
-            {'name': '김멋사', 'generation_id': generation10, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg'},
+            {'name': '김멋사', 'generation_id': generation6, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg', 'is_president': False, 'is_vice_president': False},
+            {'name': '김멋사', 'generation_id': generation7, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg', 'is_president': False, 'is_vice_president': False},
+            {'name': '김멋사', 'generation_id': generation8, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg', 'is_president': False, 'is_vice_president': False},
+            {'name': '김멋사', 'generation_id': generation9, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg', 'is_president': False, 'is_vice_president': False},
+            {'name': '김멋사', 'generation_id': generation10, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg', 'is_president': False, 'is_vice_president': False},
 
-            {'name': '한우석', 'generation_id': generation11, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg'},
-            {'name': '진민석', 'generation_id': generation11, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg'},
-            {'name': '김아영', 'generation_id': generation11, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg'},
-            {'name': '박채린', 'generation_id': generation11, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg'},
-            {'name': '정지우', 'generation_id': generation11, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg'},
-            {'name': '이종미', 'generation_id': generation11, 'part': 'BACK-END', 'emoji': '운영진_이모지.jpg'},
-            {'name': '성현동', 'generation_id': generation11, 'part': 'BACK-END', 'emoji': '운영진_이모지.jpg'},
-            {'name': '윤태호', 'generation_id': generation11, 'part': 'BACK-END', 'emoji': '운영진_이모지.jpg'},
+            {'name': '한우석', 'generation_id': generation11, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg', 'is_president': True, 'is_vice_president': False},
+            {'name': '진민석', 'generation_id': generation11, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg', 'is_president': False, 'is_vice_president': False},
+            {'name': '김아영', 'generation_id': generation11, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg', 'is_president': False, 'is_vice_president': False},
+            {'name': '박채린', 'generation_id': generation11, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg', 'is_president': False, 'is_vice_president': False},
+            {'name': '정지우', 'generation_id': generation11, 'part': 'FRONT-END', 'emoji': '운영진_이모지.jpg', 'is_president': False, 'is_vice_president': True},
+            {'name': '이종미', 'generation_id': generation11, 'part': 'BACK-END', 'emoji': '운영진_이모지.jpg', 'is_president': False, 'is_vice_president': False},
+            {'name': '성현동', 'generation_id': generation11, 'part': 'BACK-END', 'emoji': '운영진_이모지.jpg', 'is_president': False, 'is_vice_president': False},
+            {'name': '윤태호', 'generation_id': generation11, 'part': 'BACK-END', 'emoji': '운영진_이모지.jpg', 'is_president': False, 'is_vice_president': True},
 
-            {'name': '정인영', 'generation_id': generation12, 'part': 'FRONT-END', 'emoji': '정인영.PNG'},
-            {'name': '임정연', 'generation_id': generation12, 'part': 'BACK-END', 'emoji': '임정연.PNG'},
-            {'name': '정고은', 'generation_id': generation12, 'part': 'FRONT-END', 'emoji': '정고은.PNG'},
-            {'name': '이선명', 'generation_id': generation12, 'part': 'FRONT-END', 'emoji': '이선명.PNG'},
-            {'name': '김유이', 'generation_id': generation12, 'part': 'BACK-END', 'emoji': '김유이.PNG'},
-            {'name': '오은택', 'generation_id': generation12, 'part': 'BACK-END', 'emoji': '오은택.PNG'},
-            {'name': '장세환', 'generation_id': generation12, 'part': 'FRONT-END', 'emoji': '장세환.PNG'},
+            {'name': '정인영', 'generation_id': generation12, 'part': 'FRONT-END', 'emoji': '정인영.PNG', 'is_president': True, 'is_vice_president': False},
+            {'name': '임정연', 'generation_id': generation12, 'part': 'BACK-END', 'emoji': '임정연.PNG', 'is_president': False, 'is_vice_president': True},
+            {'name': '정고은', 'generation_id': generation12, 'part': 'FRONT-END', 'emoji': '정고은.PNG', 'is_president': False, 'is_vice_president': False},
+            {'name': '이선명', 'generation_id': generation12, 'part': 'FRONT-END', 'emoji': '이선명.PNG', 'is_president': False, 'is_vice_president': False},
+            {'name': '김유이', 'generation_id': generation12, 'part': 'BACK-END', 'emoji': '김유이.PNG', 'is_president': False, 'is_vice_president': False},
+            {'name': '오은택', 'generation_id': generation12, 'part': 'BACK-END', 'emoji': '오은택.PNG', 'is_president': False, 'is_vice_president': False},
+            {'name': '장세환', 'generation_id': generation12, 'part': 'FRONT-END', 'emoji': '장세환.PNG', 'is_president': False, 'is_vice_president': False},
         ]
 
         for lion_data in adult_lion_data:
