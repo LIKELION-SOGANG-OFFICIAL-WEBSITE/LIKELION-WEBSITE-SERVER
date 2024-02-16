@@ -4,5 +4,6 @@ from .views import *
 
 urlpatterns = [
     path('', AppCreateListView.as_view()),
-    path('<str:apply_id>',AppDetailView.as_view()),
+    path('<str:apply_id>', AppDetailView.as_view()),
+    path('<str:apply_id>/result', IsPassView.as_view()),
 ]

@@ -9,7 +9,7 @@ from rest_framework import generics, mixins, status
 from rest_framework.response import Response
 
 from .models import Application
-from .serializers import AppSerializer
+from .serializers import AppSerializer, AppDetailSerializer, IsPassSerializer
 import uuid
 
 class AppCreateListView(generics.ListCreateAPIView):
@@ -20,7 +20,7 @@ class AppCreateListView(generics.ListCreateAPIView):
         name = request.data.get('name')
         student_number = request.data.get('student_number')
         email = request.data.get('email')
-        field = request.data.get('field')
+        phone = request.data.get('phone')
         apply_id = uuid.uuid4()
 
         # 중복 지원자 확인 : (student_number || email )
@@ -54,7 +54,7 @@ class AppCreateListView(generics.ListCreateAPIView):
             name=name,
             student_number=student_number,
             email=email,
-            field=field,
+            phone=phone,
             apply_id=apply_id
         )
 
@@ -64,9 +64,13 @@ class AppCreateListView(generics.ListCreateAPIView):
 
 class AppDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Application.objects.all()
-    serializer_class = AppSerializer
+    serializer_class = AppDetailSerializer
     lookup_field = 'apply_id' # 고유번호를 이용해서 지원서 조회
     
+class IsPassView(generics.RetrieveAPIView):
+    queryset = Application.objects.all()
+    serializer_class = IsPassSerializer
+    lookup_field = 'apply_id' # 고유번호를 이용해서 지원서 조회
     
 
     
