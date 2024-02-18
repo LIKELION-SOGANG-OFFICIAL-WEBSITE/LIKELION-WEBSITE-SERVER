@@ -104,6 +104,7 @@ class Command(BaseCommand):
             {'name': '임하은', 'generation_id': generation8, 'part': 'FRONT-END'},
             {'name': '조휘건', 'generation_id': generation8, 'part': 'FRONT-END'},
             {'name': '최윤서', 'generation_id': generation8, 'part': 'FRONT-END'},
+            {'name': '홍성혁', 'generation_id': generation8, 'part': 'FRONT-END'},
 
             # 9기
             {'name': '강현석', 'generation_id': generation9, 'part': 'FRONT-END'},
