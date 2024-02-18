@@ -25,9 +25,10 @@ class AppCreateListView(generics.CreateAPIView):
 
         # 중복 지원자 확인 : (student_number || email )
         # q = Q(name = name) -> name && (student_number || email )
-        q = Q()
-        q.add (Q(student_number =student_number) | Q(email = email), q.AND )
-        exist_app = Application.objects.filter(q) 
+        #q = Q()
+        #q.add (Q(student_number =student_number) | Q(email = email), q.AND )
+        #exist_app = Application.objects.filter(q)
+        exist_app = Application.objects.filter(email=email) 
         if exist_app.exists(): 
             return Response({'message': 'Duplicate application exists.'}, status=status.HTTP_400_BAD_REQUEST)
         
