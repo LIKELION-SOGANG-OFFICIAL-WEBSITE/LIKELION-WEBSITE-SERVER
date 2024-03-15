@@ -12,6 +12,8 @@ from .models import Application
 from .serializers import AppSerializer, AppDetailSerializer, IsPassSerializer
 import uuid
 
+from django.http import Http404
+
 class AppCreateListView(generics.CreateAPIView):
     queryset = Application.objects.all()
     serializer_class = AppSerializer
@@ -71,7 +73,15 @@ class AppDetailView(generics.RetrieveUpdateDestroyAPIView):
 class IsPassView(generics.RetrieveAPIView):
     queryset = Application.objects.all()
     serializer_class = IsPassSerializer
-    lookup_field = 'apply_id' # 고유번호를 이용해서 지원서 조회
+    lookup_field = 'apply_id' # 고유번호를 이용해서 합불 여부 조회
+
+    def retrieve(self, request, *args, **kwargs):
+        try:
+            instance = self.get_object()
+            serializer = self.get_serializer(instance)
+            return Response(serializer.data)
+        except Http404:
+            return Response({"error": "지원서를 찾을 수 없습니다."}, status=status.HTTP_404_NOT_FOUND)
     
 
     
